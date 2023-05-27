@@ -19,6 +19,7 @@ trait ConsumesExternalService
         $client = new Client([
             'base_uri' => $this->baseUri,
         ]);
+        
         // perform the request (method, url, form parameters, headers)
         $response = $client->request($method,$requestUrl,
             ['form_params' =>$form_params, 'headers' =>$headers]);

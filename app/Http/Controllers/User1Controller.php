@@ -17,6 +17,7 @@ Class User1Controller extends Controller {
     * @var User1Service
     */
     public $user1Service;
+
     /**
     * Create a new controller instance
     * @return void
@@ -25,12 +26,6 @@ Class User1Controller extends Controller {
         $this->user1Service = $user1Service;
     }
 
-    // show all records (unsecure routes)
-    public function getUsers()
-    {
-       
-    }
-    
     // show all records
     public function index()
     {
@@ -40,26 +35,25 @@ Class User1Controller extends Controller {
     // add records
     public function add(Request $request)
     {
-        return $this->successResponse($this->user1Service->createUsers1(request->all(), Response::HTTP_CREATED));
+        return $this->successResponse($this->user1Service->createUser1($request->all(), Response::HTTP_CREATED));
     }
 
     // delete records
     public function delete($id)
     {
-        
+        return $this->successResponse($this->user1Service->deleteUser1($id));
     }
 
     // update records
     public function update(Request $request,$id)
     {
-       
+        return $this->successResponse($this->user1Service->editUser1($request->all(), $id));
     }
 
     // show records
     public function show($id)
     {
-
-
+        return $this->successResponse($this->user1Service->obtainUser1($id));
     }
 
 } 
